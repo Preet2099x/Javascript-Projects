@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="index.css">
+  <title>TECHNIKA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form id="loginForm" onsubmit="updateURL(); return false;">
+                    <h2>Login</h2>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="email" id="emailInput" required>
+                        <label for="emailInput">Email</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" id="passwordInput" required>
+                        <label for="passwordInput">Password</label>
+                    </div>
+                    <div class="forget">
+                        <label for="rememberCheckbox">
+                            <input type="checkbox" id="rememberCheckbox">Remember Me
+                            <a href="#">Forget Password</a>
+                        </label>
+                    </div>
+                    <button type="submit">Log in</button>
+                    <div class="register">
+                        <p>Don't have an account <a href="#">Register</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        function updateURL() {
+            const email = document.getElementById('emailInput').value;
+            const password = document.getElementById('passwordInput').value;
+            const remember = document.getElementById('rememberCheckbox').checked;
+
+            const queryString = `?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}&remember=${remember}`;
+
+            history.pushState({}, '', window.location.pathname + queryString);
+        }
+
+        function readURLParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const email = urlParams.get('email');
+            const password = urlParams.get('password');
+            const remember = urlParams.get('remember');
+
+            document.getElementById('emailInput').value = email || '';
+            document.getElementById('passwordInput').value = password || '';
+            document.getElementById('rememberCheckbox').checked = remember === 'true';
+        }
+
+        readURLParams();
+    </script>
+</body>
+</html>
