@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello</title>
+    <style>
+        #hello {
+            font-size: 20px;
+        }
+
+        #text{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            
+
+        }
+    </style>
+</head>
+<body>
+    <div id="text">
+        <p id="hello">Hello World!</p>
+    </div>
+
+    <div id="buttons">
+
+        <div id="button1">
+            <button onclick='toggleText()'>Click to Change Text</button>
+        </div>
+
+        <div id="button2">
+            <button onclick='toggleSizeplus()'>+</button>
+            <button onclick='toggleSizeminus()'>-</button>
+        </div>
+        
+
+    </div>
+
+
+
+
+    <script>
+        const names = ["HTML", "CSS", "JavaScript","React","Node","Python"];
+
+        function toggleText() {
+            let txt = document.getElementById('hello');
+            let randomIndex = Math.floor(Math.random() * names.length);
+            txt.innerHTML = "Hello " +names[randomIndex]+"!";
+        }
+
+        function toggleSizeplus() {
+            changeFontSize(10);
+        }
+
+        function toggleSizeminus() {
+            changeFontSize(-10);
+        }
+
+        function changeFontSize(amount) {
+            let sz = document.getElementById('hello');
+            let currentSize = parseInt(window.getComputedStyle(sz).fontSize);
+            sz.style.fontSize = (currentSize + amount) + "px";
+        }
+    </script>
+</body>
+</html>
