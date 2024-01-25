@@ -1,3 +1,3 @@
 {
-    "rewrites": [{ "source": "/(.*)", "destination": "/login2.html" }]
+    "rewrites": [{ "source": "/(.*)", "destination": "/hello.html" }]
 }
