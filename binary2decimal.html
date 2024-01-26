@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary2Decimal</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;  
+            align-items: center;
+        }
+        
+        #container {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+        }
+
+    #container input {
+        height: 15px;
+    }
+
+    #output{
+        padding: 10px;
+    }
+    </style>
+</head>
+<body>
+    <h1>Binary 2 Decimal Converter</h1>
+
+    <div id="container">
+        <p>Enter Binary: </p>
+        <input type="text" name="" id="binaryInput">
+    </div>
+
+    <button onclick="toDecimal()">Convert</button>
+
+    <div id="output">
+    </div>
+</body>
+
+<script>
+   function toDecimal() {
+    let value = document.getElementById("binaryInput").value;
+    value=parseInt(value, 2);
+    document.getElementById("output").innerHTML ="Decimal Value: "+ value;
+   }
+   
+</script>
+</html>
