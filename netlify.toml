@@ -1,0 +1,4 @@
+[build]
+ base    = "Canvas Color Changer"
+ publish = "Canvas Color Changer/index.html/"
+ command = "your build command"
